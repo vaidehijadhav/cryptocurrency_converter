@@ -33,15 +33,93 @@
     box-shadow: 0 8px 32px 0  rgba(0, 0, 0, 0.37);
 }
 
-.heading{
-    font-size: 3.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+.title{
+    display: flex;
+    gap: 18px;
     color: #fffaf0;
 }
 
-.icon{
-    width:  60px; 
-    height: 50px;
-    
+.heading{
+    font-size: 2.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.box2{
+    display: flex;
+    position: relative;
+}
+
+.formContainer{
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* justify-content: space-between; */
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    gap: 13px;
+}
+
+form select{
+    width: 160px;
+    height: 65px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    background-color: #6a89ac;
+    color: #fffaf0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+form input{
+    width: 370px;
+    height: 65px;
+    border: none;
+    outline: none;
+    background-color: #f7f7f7b3;
+    color: #002147;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: end;
+}
+
+form input::-webkit-inner-spin-button,
+form input::-webkit-outer-spin-button {
+  appearance: none;
+}
+
+.btn{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    line-height: 1;
+    position: absolute;
+    top: 33%;
+    right: 160px;
+    background-color: #041119;;
+    color: #91adcc;
+    /* padding: 8px; */
+}
+
+.btn span {
+    font-size: 2.3rem;
+    font-weight: 700;
+    text-align: center;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn span:hover {
+    transform: rotate(180deg);
 }
