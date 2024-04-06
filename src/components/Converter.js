@@ -99,7 +99,7 @@ function Converter() {
                                     </option>
                                 ))}
                             </select>
-                            <input type='number' value={result}/>
+                            <input type='number' value={result} readOnly/>
                         </form>
                     </div>
 
@@ -108,8 +108,8 @@ function Converter() {
                             <span>
                                 <MdSwapVert />
                             </span>
-                        
                     </button>
+                    
                 </div>
             </div>
         </div>
