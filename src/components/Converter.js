@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MdSwapVert } from "react-icons/md";
 import { PiHandCoins } from "react-icons/pi";
+import './Converter.css';
 // import axios from 'axios';
 
 function Converter() {
@@ -57,47 +58,59 @@ function Converter() {
             setFirstSelect(secondSelect);
             setSecondSelect(firstSelect);
         }
-        
+
     return(
-        <div>
-            <div>
-                <h1><PiHandCoins />Crypto Converter</h1>
-            </div>
+        <div className='container'>
 
-            <div>
-                <div>
-                    <form>
-                        <select 
-                            value={firstSelect}
-                            onChange={(e) => setFirstSelect(e.target.value)}>
-                            {cryptoList.map((item)=> (
-                                <option key={item.value} value={item.value}>
-                                    {item.label}
-                                </option>
-                            ))}
-                        </select>
+            <div className='box glass'>
 
-                        <input type='number'
-                            value={inputValue} 
-                            onChange={(event)=>setInputValue(event.target.value)}/>
-                    </form>
-
-                    <form>
-                        <select value={secondSelect}
-                        onChange={(event)=> setSecondSelect(event.target.value)}>
-                            {cryptoList.map((item)=> (
-                                <option key={item.value} value={item.value}>
-                                    {item.label}
-                                </option>
-                            ))}
-                        </select>
-                        <input type='number' value={result}/>
-                    </form>
+                <div className='title'>
+                    <PiHandCoins style={{width:"67px", height:"60px"}}/>
+                    <h1 className='heading'>
+                        Crypto Converter
+                    </h1>
                 </div>
+                
+            
+                <div className='box2'>
+                    <div className='formContainer'>
+                        <form>
+                            <select 
+                                value={firstSelect}
+                                onChange={(e) => setFirstSelect(e.target.value)}>
+                                {cryptoList.map((item)=> (
+                                    <option key={item.value} value={item.value}>
+                                        {item.label}
+                                    </option>
+                                ))}
+                            </select>
 
-                <button onClick={swapHandler}>
-                    <MdSwapVert />
-                </button>
+                            <input type='number'
+                                value={inputValue} 
+                                onChange={(event)=>setInputValue(event.target.value)}/>
+                        </form>
+
+                        <form>
+                            <select value={secondSelect}
+                            onChange={(event)=> setSecondSelect(event.target.value)}>
+                                {cryptoList.map((item)=> (
+                                    <option key={item.value} value={item.value}>
+                                        {item.label}
+                                    </option>
+                                ))}
+                            </select>
+                            <input type='number' value={result}/>
+                        </form>
+                    </div>
+
+                    <button className='btn'
+                        onClick={swapHandler}>
+                            <span>
+                                <MdSwapVert />
+                            </span>
+                        
+                    </button>
+                </div>
             </div>
         </div>
     )
