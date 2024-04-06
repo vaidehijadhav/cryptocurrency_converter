@@ -4,22 +4,54 @@ import { PiHandCoins } from "react-icons/pi";
 // import axios from 'axios';
 
 function Converter() {
+
+    const defaultFirstSelect = "Bitcoin";
+    const defaultSecondSelect = "Ether";
     
     const [cryptoList, setCryptoList] = useState([]);
+    const [inputValue, setInputValue] = useState();
+    const [firstSelect, setFirstSelect] = useState(defaultFirstSelect);
+    const [secondSelect, setSecondSelect] = useState(defaultSecondSelect);
+    const [result, setResult]  = useState("");
 
+    useEffect(()=>{
+        fetchData();
+    }, []);
 
-    const fetchData = async ()=>{
-        const response = await fetch("https://api.coingecko.com/api/v3/exchange_rates");
-        const data = await response.json();
-
-        // console.log(data);
-        const tempArray = Object.entries(data).map(item) =>{
-
+    const fetchData = async () => {
+        try {
+          const response = await fetch("https://api.coingecko.com/api/v3/exchange_rates");
+          const dataJson = await response.json();
+          const data = dataJson.rates;
+          const tempArray = Object.entries(data).map((item) => {
+            return {
+              value: item[1].name,
+              label: item[1].name,
+              rate: item[1].value
+            };
+          });
+          setCryptoList(tempArray);
+        } catch (error) {
+          console.error("Error fetching data:", error);
         }
+      };
 
-    }
+      useEffect(()=>{
+        if(cryptoList.length == 0) return;
 
-    fetchData();
+        const firstSelectRate = cryptoList.find((item)=>{
+            return item.value === firstSelect;
+        }).rate;
+
+        const secondSelectRate = cryptoList.find((item)=>{
+            return item.value === secondSelect;
+        }).rate;
+
+        const resultValue = (inputValue * secondSelectRate) / firstSelectRate;
+        setResult(resultValue.toFixed(6)); 
+
+        },[inputValue, firstSelect, secondSelect, cryptoList])
+
     return(
         <div>
             <div>
@@ -29,17 +61,35 @@ function Converter() {
             <div>
                 <div>
                     <form>
-                        <select></select>
-                        <input type='number'/>
+                        <select 
+                            value={firstSelect}
+                            onChange={(e) => setFirstSelect(e.target.value)}>
+                            {cryptoList.map((item)=> (
+                                <option key={item.value} value={item.value}>
+                                    {item.label}
+                                </option>
+                            ))}
+                        </select>
+
+                        <input type='number'
+                            value={inputValue} 
+                            onChange={(event)=>setInputValue(event.target.value)}/>
                     </form>
 
                     <form>
-                        <select></select>
-                        <input type='number'/>
+                        <select value={secondSelect}
+                        onChange={(event)=> setSecondSelect(event.target.value)}>
+                            {cryptoList.map((item)=> (
+                                <option key={item.value} value={item.value}>
+                                    {item.label}
+                                </option>
+                            ))}
+                        </select>
+                        <input type='number' value={result}/>
                     </form>
                 </div>
 
-                <button>
+                <button onClick={swapHandler}>
                     <MdSwapVert />
                 </button>
             </div>
