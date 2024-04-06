@@ -52,6 +52,12 @@ function Converter() {
 
         },[inputValue, firstSelect, secondSelect, cryptoList])
 
+        const swapHandler = (event)=>{
+            event.preventDefault();
+            setFirstSelect(secondSelect);
+            setSecondSelect(firstSelect);
+        }
+        
     return(
         <div>
             <div>
