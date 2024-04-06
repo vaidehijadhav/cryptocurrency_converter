@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #002147;
+}
+
+.box{
+    width: 650px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+/* glass effect */
+.glass{
+    background: linear-gradient(135deg, rgba(255, 255,255, 0.1), rgba(255, 255, 255, 0.04));
+    backdrop-filter: blur(10px); 
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255,255, 0.18);
+    box-shadow: 0 8px 32px 0  rgba(0, 0, 0, 0.37);
+}
+
+.heading{
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fffaf0;
+}
+
+.icon{
+    width:  60px; 
+    height: 50px;
+    
+}
