@@ -109,7 +109,11 @@ function Converter() {
                                 <MdSwapVert />
                             </span>
                     </button>
-                    
+                </div>
+
+                <div className='exchange-rate'>
+                    <h4 className='exchange-title'>Exchange Rate</h4>
+                    <p className='result'>{inputValue} {firstSelect} = {result} {secondSelect}</p>
                 </div>
             </div>
         </div>
