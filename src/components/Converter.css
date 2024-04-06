@@ -37,6 +37,7 @@
     display: flex;
     gap: 18px;
     color: #fffaf0;
+    margin: 12px;
 }
 
 .heading{
@@ -48,6 +49,7 @@
 .box2{
     display: flex;
     position: relative;
+    margin: 15px;
 }
 
 .formContainer{
@@ -106,7 +108,7 @@ form input::-webkit-outer-spin-button {
     line-height: 1;
     position: absolute;
     top: 33%;
-    right: 160px;
+    right: 170px;
     background-color: #041119;;
     color: #91adcc;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
